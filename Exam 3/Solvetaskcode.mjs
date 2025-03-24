@@ -86,4 +86,40 @@ async function answer2() {
 
 await answer2();
 
-//Challenge 3
+// Challenge 3: 
+
+async function answer3() {
+    // Riddle
+    const riddleText = 
+        "to obtain access to the next vault, insert the formula " +
+        "for the the fourth element; combine mercury, copper, and " +
+        "sulfur over heat, add salt ard water, infuse gold through air";
+
+    // Alchemical symbol mapping
+    const elementToSymbol = {
+        "gold": "☉",
+        "copper": "♀",
+        "mercury": "☿",
+        "sulfur": "🜍",
+        "heat": "🜂",
+        "salt": "🜔",
+        "water": "🜄",
+        "air": "🜁"
+    };
+
+    let alchemicalSymbols = "";
+    riddleText.split(" ").forEach(word => {
+        let cleanWord = word.toLowerCase().replace(/[^a-z]/g, "");
+        if (elementToSymbol[cleanWord]) {
+            alchemicalSymbols += elementToSymbol[cleanWord] + " ";
+        }
+    });
+
+    alchemicalSymbols = alchemicalSymbols.trim();
+
+    console.log("Final Alchemical Symbols:", alchemicalSymbols);
+
+    await submitAnswer(alchemicalSymbols);
+}
+
+await answer3();
