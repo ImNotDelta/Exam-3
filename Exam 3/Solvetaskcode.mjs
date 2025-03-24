@@ -59,4 +59,29 @@ const alchemical = {
 };
 console.log(await answer1());
 
-// challenge 2
+// Challenge 2
+async function answer2() {
+    const text = `Your work was examplary, unfortunatlyt it turnes out we where not as close as first belived. The code only gave us access to a note with a poem, the evil bastard had dusted it with Berulium powder so several of our alcylots are nolonger among us. We must be more carefull in the future. Anyways the poem read "Still flows the Icy Lethe, Veiling all 'neath Eldritch Rime.", can you make anything of it?`;
+
+    const extractCapitalsFromPoem = (text) => {
+        const startQuote = text.indexOf('"');
+        const endQuote = text.indexOf('"', startQuote + 1);
+        const poem = text.substring(startQuote + 1, endQuote);
+
+        let capitals = "";
+
+        for (let i = 0; i < poem.length; i++) {
+            const char = poem[i];
+            if (char >= 'A' && char <= 'Z') {
+                capitals += char;
+            }
+        }
+
+        return capitals;
+    };
+
+    const result = extractCapitalsFromPoem(text);
+    await submitAnswer(result);
+};
+
+await answer2();
